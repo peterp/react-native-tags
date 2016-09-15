@@ -20,7 +20,7 @@ Tag.propTypes = {
 };
 
 
-class TagInput extends React.Component {
+class Tags extends React.Component {
   constructor(props) {
     super(props);
 
@@ -88,11 +88,11 @@ class TagInput extends React.Component {
     );
   }
 }
-TagInput.propTypes = {
+Tags.propTypes = {
   initialText: PropTypes.string,
   initialTags: PropTypes.arrayOf(PropTypes.string),
   onChangeTags: PropTypes.func,
 };
 
 
-export default TagInput;
+export default Tags;

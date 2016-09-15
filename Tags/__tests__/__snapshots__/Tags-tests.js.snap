@@ -1,4 +1,4 @@
-exports[`TagInput should render props correctly 1`] = `
+exports[`Tags should render props correctly 1`] = `
 <View
   style={
     Array [
