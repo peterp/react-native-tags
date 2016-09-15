@@ -5,18 +5,16 @@ A component that allows you to input text and formats the text into a tag when a
 ```
 import React from 'react';
 import Tags from 'react-native-tags';
-const UselessComponent = () => (
-    <Tags />
-)
+const UselessComponent = () => <Tags />;
 ```
 
 ## Props
 
-*initialText* PropTypes.string
+**initialText** PropTypes.string
 Populates the text input.
 
-*initialTags* PropTypes.string
+**initialTags** PropTypes.string
 Populates the tags.
 
-*onTagsChange* PropTypes.func
+**onTagsChange** PropTypes.func
 Callback that is called when a tag is added or removed.
