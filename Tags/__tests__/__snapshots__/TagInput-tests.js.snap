@@ -1,0 +1,132 @@
+exports[`TagInput should render props correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "flexWrap": "wrap"
+      }
+    ]
+  }>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#e0e0e0",
+          "borderRadius": 16,
+          "height": 32,
+          "justifyContent": "center",
+          "margin": 4,
+          "paddingLeft": 12,
+          "paddingRight": 12
+        }
+      ]
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontSize": 13
+          }
+        ]
+      }>
+      tomato sauce
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#e0e0e0",
+          "borderRadius": 16,
+          "height": 32,
+          "justifyContent": "center",
+          "margin": 4,
+          "paddingLeft": 12,
+          "paddingRight": 12
+        }
+      ]
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontSize": 13
+          }
+        ]
+      }>
+      mustard
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#e0e0e0",
+          "borderRadius": 16,
+          "height": 32,
+          "justifyContent": "center",
+          "margin": 4,
+          "paddingLeft": 12,
+          "paddingRight": 12
+        }
+      ]
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontSize": 13
+          }
+        ]
+      }>
+      mayo
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ccc",
+          "borderRadius": 16,
+          "flex": 1,
+          "height": 32,
+          "margin": 4,
+          "width": 100
+        }
+      ]
+    }>
+    <TextInput
+      onChangeText={[Function bound onChangeText]}
+      style={
+        Array [
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "flex": 1,
+            "fontSize": 13,
+            "height": 32,
+            "margin": 0,
+            "padding": 0,
+            "paddingLeft": 12,
+            "paddingRight": 12
+          }
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value="monkey gland sauce." />
+  </View>
+</View>
+`;
