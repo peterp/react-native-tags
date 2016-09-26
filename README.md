@@ -7,7 +7,7 @@ A component that allows you to input text and formats the text into a tag when a
 ```
 import React from 'react';
 import Tags from 'react-native-tags';
-const UselessComponent = () => <Tags />;
+const UselessComponent = () => <Tags initialText="" initialTags={['dog', 'cat', 'chicken]} onChangeTags={() => noop} />;
 ```
 
 ## Props
