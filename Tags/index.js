@@ -43,22 +43,19 @@ class Tags extends React.Component {
         space character at the start of `TextInput` which is used to determine if the
         user is erasing.
       */
-      const tags = this.state.tags.slice(0, -1); 
       this.setState({
-        tags,
+        tags: this.state.tags.slice(0, -1),
         text: this.state.tags.slice(-1)[0] || ' ',
-      });
-      this.props.onChangeTags(tags);
+      }, () => this.props.onChangeTags && this.props.onChangeTags(this.state.tags));
     } else if (
       text.length > 1 &&
       (text.slice(-1) === ' ' || text.slice(-1) === ',')
     ) {
-      const tags = [...this.state.tags, text.slice(0, -1)];
       this.setState({
-        tags: tags,
+        tags: [...this.state.tags, text.slice(0, -1).trim()],
         text: ' ',
-      });
-      this.props.onChangeTags(tags);
+      }, () => this.props.onChangeTags && this.props.onChangeTags(this.state.tags));
+      ;
     } else {
       this.setState({ text });
     }
@@ -67,7 +64,6 @@ class Tags extends React.Component {
   render() {
     return (
       <View style={[styles.container]}>
-
         {this.state.tags.map((tag, i) => (
           <Tag
             key={i}
@@ -75,7 +71,6 @@ class Tags extends React.Component {
             onPress={this.props.onTagPress}
           />)
         )}
-
         <View style={[styles.textInputContainer]}>
           <TextInput
             value={this.state.text}
@@ -95,4 +90,5 @@ Tags.propTypes = {
 };
 
 
+export { Tag };
 export default Tags;
