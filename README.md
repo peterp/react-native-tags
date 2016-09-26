@@ -1,5 +1,7 @@
 # React-Native-Tags
 
+[![Build Status](https://travis-ci.org/peterp/react-native-tags.svg?branch=master)](https://travis-ci.org/peterp/react-native-tags)
+
 A component that allows you to input text and formats the text into a tag when a space or comma is entered.
 
 ```
