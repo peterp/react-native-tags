@@ -11,10 +11,13 @@ const UselessComponent = () => <Tags />;
 ## Props
 
 **initialText** PropTypes.string
+
 Populates the text input.
 
-**initialTags** PropTypes.string
+**initialTags** PropTypes.array
+
 Populates the tags.
 
 **onTagsChange** PropTypes.func
+
 Callback that is called when a tag is added or removed.
