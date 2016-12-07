@@ -88,7 +88,7 @@ class Tags extends React.Component {
         <View style={[styles.textInputContainer]}>
           <TextInput
             value={this.state.text}
-            style={[styles.textInput]}
+            style={[styles.textInput, this.props.inputStyle]}
             onChangeText={this.onChangeText}
             underlineColorAndroid="transparent"
           />
@@ -97,10 +97,14 @@ class Tags extends React.Component {
     );
   }
 }
+Tags.defaultProps = {
+  inputStyle: {}
+};
 Tags.propTypes = {
   initialText: PropTypes.string,
   initialTags: PropTypes.arrayOf(PropTypes.string),
   onChangeTags: PropTypes.func,
+  inputStyle: PropTypes.object
 };
 
 
