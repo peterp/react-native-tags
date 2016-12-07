@@ -104,6 +104,7 @@ Tags.propTypes = {
   initialText: PropTypes.string,
   initialTags: PropTypes.arrayOf(PropTypes.string),
   onChangeTags: PropTypes.func,
+  onTagPress: PropTypes.func,
   inputStyle: PropTypes.object
 };
 
