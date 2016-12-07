@@ -70,7 +70,7 @@ class Tags extends React.Component {
           <Tag
             key={i}
             label={tag}
-            onPress={this.props.onTagPress}
+            onPress={ e => this.props.onTagPress(i, tag, e)}
           />)
         )}
         <View style={[styles.textInputContainer]}>
