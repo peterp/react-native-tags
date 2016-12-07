@@ -39,6 +39,18 @@ class Tags extends React.Component {
     this.onChangeText = this.onChangeText.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    const {
+      initialTags = [],
+      initialText = ' ',
+    } = props;
+
+    this.setState({
+      tags: initialTags,
+      text: initialText,
+    });
+  }
+
   onChangeText(text) {
     if (text.length === 0) {
       /* `onKeyPress` isn't currently supported on Android; I've placed an extra
