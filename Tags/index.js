@@ -1,22 +1,24 @@
 import React, { PropTypes } from 'react';
-import { View, Text, TextInput, TouchableHighlight } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
 
 const Tag = ({
   label,
+  onPress
 }) => {
   const tag = (
-    <View style={[styles.tag]}>
+    <TouchableOpacity style={[styles.tag]} onPress={onPress}>
       <Text style={[styles.tagLabel]}>
         {label}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
   return tag;
 };
 Tag.propTypes = {
   label: PropTypes.string.isRequired,
+  onPress: PropTypes.func
 };
 
 
