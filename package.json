@@ -14,17 +14,17 @@
   "author": "Peter Pistorius <peter.pistorius@gmail.com> (http://github.com/peterp/)",
   "license": "MIT",
   "dependencies": {
-    "react": "^15.3.2"
+    "react": "^15.4.1"
   },
   "devDependencies": {
     "babel-jest": "^15.0.0",
     "babel-preset-react-native": "^1.9.0",
     "enzyme": "^2.4.1",
     "jest": "^15.1.1",
-    "jest-react-native": "^15.0.0",
+    "jest-react-native": "^17.1.0",
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-native": "^0.32.0",
+    "react-native": "^0.39.1",
     "react-native-mock": "^0.2.6",
     "react-test-renderer": "^15.3.2"
   },

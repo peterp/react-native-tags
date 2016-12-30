@@ -1,22 +1,24 @@
 import React, { PropTypes } from 'react';
-import { View, Text, TextInput, TouchableHighlight } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
 
 const Tag = ({
   label,
+  onPress
 }) => {
   const tag = (
-    <View style={[styles.tag]}>
+    <TouchableOpacity style={[styles.tag]} onPress={onPress}>
       <Text style={[styles.tagLabel]}>
         {label}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
   return tag;
 };
 Tag.propTypes = {
   label: PropTypes.string.isRequired,
+  onPress: PropTypes.func
 };
 
 
@@ -35,6 +37,18 @@ class Tags extends React.Component {
     };
 
     this.onChangeText = this.onChangeText.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    const {
+      initialTags = [],
+      initialText = ' ',
+    } = props;
+
+    this.setState({
+      tags: initialTags,
+      text: initialText,
+    });
   }
 
   onChangeText(text) {
@@ -68,13 +82,13 @@ class Tags extends React.Component {
           <Tag
             key={i}
             label={tag}
-            onPress={this.props.onTagPress}
+            onPress={ e => this.props.onTagPress(i, tag, e)}
           />)
         )}
         <View style={[styles.textInputContainer]}>
           <TextInput
             value={this.state.text}
-            style={[styles.textInput]}
+            style={[styles.textInput, this.props.inputStyle]}
             onChangeText={this.onChangeText}
             underlineColorAndroid="transparent"
           />
@@ -83,10 +97,15 @@ class Tags extends React.Component {
     );
   }
 }
+Tags.defaultProps = {
+  inputStyle: {}
+};
 Tags.propTypes = {
   initialText: PropTypes.string,
   initialTags: PropTypes.arrayOf(PropTypes.string),
   onChangeTags: PropTypes.func,
+  onTagPress: PropTypes.func,
+  inputStyle: PropTypes.object
 };
 
 

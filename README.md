@@ -11,6 +11,8 @@ const UselessComponent = () => <Tags
   initialText=""
   initialTags={['dog', 'cat', 'chicken]}
   onChangeTags={() => noop}
+  onTagPress={ (index, tagLabel, event) => console.log(index, tagLabel, event) }
+  inputStyle={{ backgroundColor: 'white' }}
 />;
 ```
 
@@ -27,3 +29,11 @@ Populates the tags.
 **onTagsChange** PropTypes.func
 
 Callback that is called when a tag is added or removed.
+
+**onTagPress**  PropTypes.func
+
+Callback that is called when a tag is pressed. Receive (index, tagLabel, event) 
+
+**inputStyle**  PropTypes.object
+
+Object to style the TextInput component
