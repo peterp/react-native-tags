@@ -1,39 +1,39 @@
 # React-Native-Tags
 
 [![Build Status](https://travis-ci.org/peterp/react-native-tags.svg?branch=master)](https://travis-ci.org/peterp/react-native-tags)
+[![npm](https://img.shields.io/npm/dt/express.svg)](https://www.npmjs.com/package/react-native-tags)
 
-A component that allows you to input text and formats the text into a tag when a space or comma is entered.
+A React Native component that allows you to input text and formats the text
+into a tag when a space or comma is entered.
 
+![Demo](https://camo.githubusercontent.com/e3d6f3f87e625ad787bda1e7b518307d29d21a23/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f6c34394a5036786c6847723138795a46652f67697068792e676966)
+
+## Installation
+
+```terminal
+npm install react-native-tags
 ```
+
+## Usage
+
+```javascript
 import React from 'react';
 import Tags from 'react-native-tags';
-const UselessComponent = () => <Tags 
+
+const UselessComponent = () => <Tags
   initialText=""
-  initialTags={['dog', 'cat', 'chicken]}
-  onChangeTags={() => noop}
-  onTagPress={ (index, tagLabel, event) => console.log(index, tagLabel, event) }
+  initialTags={['dog', 'cat', 'chicken']}
+  onChangeTags={() => console.log('')}
+  onTagPress={(index, tagLabel, event) => console.log(index, tagLabel, event)}
   inputStyle={{ backgroundColor: 'white' }}
 />;
 ```
 
 ## Props
 
-**initialText** PropTypes.string
-
-Populates the text input.
-
-**initialTags** PropTypes.array
-
-Populates the tags.
-
-**onTagsChange** PropTypes.func
-
-Callback that is called when a tag is added or removed.
-
-**onTagPress**  PropTypes.func
-
-Callback that is called when a tag is pressed. Receive (index, tagLabel, event) 
-
-**inputStyle**  PropTypes.object
-
-Object to style the TextInput component
+- `initialText`: Populates the input's text.
+- `initialTags`: Populates the tags.
+- `onChangeTags`: Callback that is called when a tag is added or removed.
+- `onTagPress`: Callback that is called when a tag is pressed.
+Receives (tagIndex, tagLabelText, event).
+- `inputStyle`: Object to style the TextInput component.
