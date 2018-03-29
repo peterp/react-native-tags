@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from './styles';
-
+import PropTypes from 'prop-types';
 
 const Tag = ({
   label,
@@ -77,7 +77,7 @@ class Tags extends React.Component {
 
   render() {
     return (
-      <View style={[styles.container]}>
+      <View style={[styles.container, this.props.containerStyle]}>
         {this.state.tags.map((tag, i) => (
           <Tag
             key={i}
@@ -85,14 +85,16 @@ class Tags extends React.Component {
             onPress={ e => this.props.onTagPress(i, tag, e)}
           />)
         )}
-        <View style={[styles.textInputContainer]}>
-          <TextInput
-            value={this.state.text}
-            style={[styles.textInput, this.props.inputStyle]}
-            onChangeText={this.onChangeText}
-            underlineColorAndroid="transparent"
-          />
-        </View>
+        { !this.props.readonly ? (
+          <View style={[styles.textInputContainer]}>
+              <TextInput
+                value={this.state.text}
+                style={[styles.textInput, this.props.inputStyle]}
+                onChangeText={this.onChangeText}
+                underlineColorAndroid="transparent"
+              />
+            </View>
+          ) : null }
       </View>
     );
   }
