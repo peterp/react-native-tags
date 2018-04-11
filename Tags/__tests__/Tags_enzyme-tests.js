@@ -1,6 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+
 import Tags from '../../';
+
+enzyme.configure({ adapter: new Adapter() });
 
 describe('Tags', () => {
   describe('TextInput', () => {
