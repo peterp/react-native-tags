@@ -62,9 +62,9 @@ class Tags extends React.Component {
   render() {
     return (
       <View style={[styles.container]}>
-        {this.state.tags.map(tag => (
+        {this.state.tags.map((tag, i) => (
           <Tag
-            key={tag}
+            key={i}
             label={tag}
             onPress={e => this.props.onTagPress(i, tag, e)}
             tagContainerStyle={this.props.tagContainerStyle}

@@ -54,6 +54,7 @@ exports[`Tags should render props correctly 1`] = `
             "color": "rgba(0, 0, 0, 0.87)",
             "fontSize": 13,
           },
+          undefined,
         ]
       }
     >
@@ -102,6 +103,7 @@ exports[`Tags should render props correctly 1`] = `
             "color": "rgba(0, 0, 0, 0.87)",
             "fontSize": 13,
           },
+          undefined,
         ]
       }
     >
@@ -150,6 +152,7 @@ exports[`Tags should render props correctly 1`] = `
             "color": "rgba(0, 0, 0, 0.87)",
             "fontSize": 13,
           },
+          undefined,
         ]
       }
     >
@@ -185,11 +188,11 @@ exports[`Tags should render props correctly 1`] = `
             "paddingLeft": 12,
             "paddingRight": 12,
           },
-          Object {},
+          undefined,
         ]
       }
       underlineColorAndroid="transparent"
-      value="monkey gland sauce."
+      value="monkey gland sauce"
     />
   </View>
 </View>

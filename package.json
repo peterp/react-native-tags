@@ -11,11 +11,12 @@
     "type": "git",
     "url": "git@github.com:peterp/react-native-tags.git"
   },
-  "author": "Peter Pistorius <peter.pistorius@gmail.com> (http://github.com/peterp/)",
+  "author":
+    "Peter Pistorius <peter.pistorius@gmail.com> (http://github.com/peterp/)",
   "license": "MIT",
   "peerDependencies": {
-    "react": "16.3.1",
-    "react-native": "^0.55.2"
+    "react": "*",
+    "react-native": "*"
   },
   "devDependencies": {
     "babel-jest": "^22.4.3",
