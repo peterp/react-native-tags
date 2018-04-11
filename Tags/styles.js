@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center"
   },
 
   textInputContainer: {
@@ -13,7 +13,7 @@ export default StyleSheet.create({
     height: 32,
     margin: 4,
     borderRadius: 16,
-    backgroundColor: '#ccc',
+    backgroundColor: "#ccc"
   },
 
   textInput: {
@@ -24,20 +24,20 @@ export default StyleSheet.create({
     flex: 1,
     height: 32,
     fontSize: 13,
-    color: 'rgba(0, 0, 0, 0.87)',
+    color: "rgba(0, 0, 0, 0.87)"
   },
 
   tag: {
-    justifyContent: 'center',
-    backgroundColor: '#e0e0e0',
+    justifyContent: "center",
+    backgroundColor: "#e0e0e0",
     borderRadius: 16,
     paddingLeft: 12,
     paddingRight: 12,
     height: 32,
-    margin: 4,
+    margin: 4
   },
   tagLabel: {
     fontSize: 13,
-    color: 'rgba(0, 0, 0, 0.87)',
-  },
+    color: "rgba(0, 0, 0, 0.87)"
+  }
 });

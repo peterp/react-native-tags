@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Tags should render props correctly 1`] = `
 <View
   style={
@@ -5,23 +7,28 @@ exports[`Tags should render props correctly 1`] = `
       Object {
         "alignItems": "center",
         "flexDirection": "row",
-        "flexWrap": "wrap"
-      }
+        "flexWrap": "wrap",
+      },
     ]
-  }>
+  }
+>
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
     onLayout={undefined}
-    onResponderGrant={[Function bound touchableHandleResponderGrant]}
-    onResponderMove={[Function bound touchableHandleResponderMove]}
-    onResponderRelease={[Function bound touchableHandleResponderRelease]}
-    onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-    onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-    onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "backgroundColor": "#e0e0e0",
@@ -31,10 +38,12 @@ exports[`Tags should render props correctly 1`] = `
         "margin": 4,
         "opacity": 1,
         "paddingLeft": 12,
-        "paddingRight": 12
+        "paddingRight": 12,
       }
     }
-    testID={undefined}>
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -43,10 +52,12 @@ exports[`Tags should render props correctly 1`] = `
         Array [
           Object {
             "color": "rgba(0, 0, 0, 0.87)",
-            "fontSize": 13
-          }
+            "fontSize": 13,
+          },
+          undefined,
         ]
-      }>
+      }
+    >
       tomato sauce
     </Text>
   </View>
@@ -55,14 +66,18 @@ exports[`Tags should render props correctly 1`] = `
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
     onLayout={undefined}
-    onResponderGrant={[Function bound touchableHandleResponderGrant]}
-    onResponderMove={[Function bound touchableHandleResponderMove]}
-    onResponderRelease={[Function bound touchableHandleResponderRelease]}
-    onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-    onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-    onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "backgroundColor": "#e0e0e0",
@@ -72,10 +87,12 @@ exports[`Tags should render props correctly 1`] = `
         "margin": 4,
         "opacity": 1,
         "paddingLeft": 12,
-        "paddingRight": 12
+        "paddingRight": 12,
       }
     }
-    testID={undefined}>
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -84,10 +101,12 @@ exports[`Tags should render props correctly 1`] = `
         Array [
           Object {
             "color": "rgba(0, 0, 0, 0.87)",
-            "fontSize": 13
-          }
+            "fontSize": 13,
+          },
+          undefined,
         ]
-      }>
+      }
+    >
       mustard
     </Text>
   </View>
@@ -96,14 +115,18 @@ exports[`Tags should render props correctly 1`] = `
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
     onLayout={undefined}
-    onResponderGrant={[Function bound touchableHandleResponderGrant]}
-    onResponderMove={[Function bound touchableHandleResponderMove]}
-    onResponderRelease={[Function bound touchableHandleResponderRelease]}
-    onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-    onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-    onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "backgroundColor": "#e0e0e0",
@@ -113,10 +136,12 @@ exports[`Tags should render props correctly 1`] = `
         "margin": 4,
         "opacity": 1,
         "paddingLeft": 12,
-        "paddingRight": 12
+        "paddingRight": 12,
       }
     }
-    testID={undefined}>
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -125,10 +150,12 @@ exports[`Tags should render props correctly 1`] = `
         Array [
           Object {
             "color": "rgba(0, 0, 0, 0.87)",
-            "fontSize": 13
-          }
+            "fontSize": 13,
+          },
+          undefined,
         ]
-      }>
+      }
+    >
       mayo
     </Text>
   </View>
@@ -141,12 +168,14 @@ exports[`Tags should render props correctly 1`] = `
           "flex": 1,
           "height": 32,
           "margin": 4,
-          "width": 100
-        }
+          "width": 100,
+        },
       ]
-    }>
+    }
+  >
     <TextInput
-      onChangeText={[Function bound onChangeText]}
+      allowFontScaling={true}
+      onChangeText={[Function]}
       style={
         Array [
           Object {
@@ -157,13 +186,14 @@ exports[`Tags should render props correctly 1`] = `
             "margin": 0,
             "padding": 0,
             "paddingLeft": 12,
-            "paddingRight": 12
+            "paddingRight": 12,
           },
-          Object {}
+          undefined,
         ]
       }
       underlineColorAndroid="transparent"
-      value="monkey gland sauce." />
+      value="monkey gland sauce"
+    />
   </View>
 </View>
 `;

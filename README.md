@@ -14,26 +14,36 @@ into a tag when a space or comma is entered.
 npm install react-native-tags
 ```
 
+```terminal
+yarn add react-native-tags
+```
+
 ## Usage
 
 ```javascript
-import React from 'react';
-import Tags from 'react-native-tags';
+import React from "react";
+import Tags from "react-native-tags";
 
-const UselessComponent = () => <Tags
-  initialText=""
-  initialTags={['dog', 'cat', 'chicken']}
-  onChangeTags={() => console.log('')}
-  onTagPress={(index, tagLabel, event) => console.log(index, tagLabel, event)}
-  inputStyle={{ backgroundColor: 'white' }}
-/>;
+const UselessComponent = () => (
+  <Tags
+    initialText="monkey"
+    initialTags={["dog", "cat", "chicken"]}
+    onChangeTags={tags => console.log(tags)}
+    onTagPress={(index, tagLabel, event) => console.log(index, tagLabel, event)}
+    inputStyle={{ backgroundColor: "white" }}
+  />
+);
 ```
 
 ## Props
 
-- `initialText`: Populates the input's text.
-- `initialTags`: Populates the tags.
-- `onChangeTags`: Callback that is called when a tag is added or removed.
-- `onTagPress`: Callback that is called when a tag is pressed.
-Receives (tagIndex, tagLabelText, event).
-- `inputStyle`: Object to style the TextInput component.
+| PropName          | Description                          |
+| ----------------- | ------------------------------------ |
+| initialText       | The input element's text             |
+| initialTags       | ['the', 'initial', 'tags']           |
+| onChangeTags      | Fires when tags are added or removed |
+| onTagPress        | Fires when tags are pressed          |
+| readonly          | Removes the TextInput                |
+| inputStyle        | Style                                |
+| tagContainerStyle | Style                                |
+| tagTextStyle      | Style                                |
