@@ -13,22 +13,23 @@
   },
   "author": "Peter Pistorius <peter.pistorius@gmail.com> (http://github.com/peterp/)",
   "license": "MIT",
-  "dependencies": {
-    "react": "^15.4.1"
+  "peerDependencies": {
+    "react": "16.3.1",
+    "react-native": "^0.55.2"
   },
   "devDependencies": {
-    "babel-jest": "^15.0.0",
-    "babel-preset-react-native": "^1.9.0",
-    "enzyme": "^2.4.1",
-    "jest": "^15.1.1",
-    "jest-react-native": "^17.1.0",
-    "react-addons-test-utils": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-native": "^0.39.1",
-    "react-native-mock": "^0.2.6",
-    "react-test-renderer": "^15.3.2"
+    "babel-jest": "^22.4.3",
+    "babel-preset-react-native": "^4.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.3",
+    "prop-types": "^15.6.1",
+    "react": "16.3.1",
+    "react-native": "^0.55.2",
+    "react-dom": "^16.3.1",
+    "react-test-renderer": "^16.3.1"
   },
   "jest": {
-    "preset": "jest-react-native"
+    "preset": "react-native"
   }
 }
