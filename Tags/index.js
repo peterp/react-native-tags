@@ -61,7 +61,7 @@ class Tags extends React.Component {
 
   render() {
     return (
-      <View style={[styles.container]}>
+      <View style={[styles.container, this.props.containerStyle]}>
         {this.state.tags.map((tag, i) => (
           <Tag
             key={i}
@@ -95,6 +95,7 @@ Tags.propTypes = {
   initialTags: PropTypes.arrayOf(PropTypes.string),
   onChangeTags: PropTypes.func,
   onTagPress: PropTypes.func,
+  containerStyle: PropTypes.object,
   inputStyle: PropTypes.object,
   tagContainerStyle: PropTypes.object,
   tagTextStyle: PropTypes.object,

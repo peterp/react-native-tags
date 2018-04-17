@@ -30,6 +30,7 @@ const UselessComponent = () => (
     initialTags={["dog", "cat", "chicken"]}
     onChangeTags={tags => console.log(tags)}
     onTagPress={(index, tagLabel, event) => console.log(index, tagLabel, event)}
+    containerStyle={{ justifyContent: "center" }}
     inputStyle={{ backgroundColor: "white" }}
   />
 );
@@ -44,6 +45,7 @@ const UselessComponent = () => (
 | onChangeTags      | Fires when tags are added or removed |
 | onTagPress        | Fires when tags are pressed          |
 | readonly          | Removes the TextInput                |
+| containerStyle    | Style                                |
 | inputStyle        | Style                                |
 | tagContainerStyle | Style                                |
 | tagTextStyle      | Style                                |
