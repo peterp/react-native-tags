@@ -1,4 +1,0 @@
-# Contributors
-
-* [Federico Martín Alconada Verzini](https://github.com/fedealconada)
-* [Havens](https://github.com/havenS)

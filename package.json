@@ -1,6 +1,6 @@
 {
   "name": "react-native-tags",
-  "version": "0.2.1",
+  "version": "1.2.0",
   "description": "Tag input component for React Native",
   "main": "index.js",
   "scripts": {
