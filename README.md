@@ -46,6 +46,7 @@ const UselessComponent = () => (
 | onTagPress        | Fires when tags are pressed          |
 | readonly          | Removes the TextInput                |
 | containerStyle    | Style                                |
+| style             | Style (`containerStyle` alias)       |
 | inputStyle        | Style                                |
 | tagContainerStyle | Style                                |
 | tagTextStyle      | Style                                |

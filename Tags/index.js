@@ -1,20 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
+
+import Tag from "./Tag";
 import styles from "./styles";
 
-const Tag = ({ label, onPress, tagContainerStyle, tagTextStyle }) => (
-  <TouchableOpacity style={[styles.tag, tagContainerStyle]} onPress={onPress}>
-    <Text style={[styles.tagLabel, tagTextStyle]}>{label}</Text>
-  </TouchableOpacity>
-);
-Tag.propTypes = {
-  label: PropTypes.string.isRequired,
-  onPress: PropTypes.func
-};
-
 class Tags extends React.Component {
-  state = {};
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tags: props.initialTags,
+      text: props.initialText
+    };
+  }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (
@@ -27,6 +26,15 @@ class Tags extends React.Component {
       tags: nextProps.initialTags,
       text: nextProps.initialText
     };
+  }
+
+  componentWillReceiveProps(props) {
+    const { initialTags = [], initialText = " " } = props;
+
+    this.setState({
+      tags: initialTags,
+      text: initialText
+    });
   }
 
   onChangeText = text => {
@@ -61,7 +69,9 @@ class Tags extends React.Component {
 
   render() {
     return (
-      <View style={[styles.container, this.props.containerStyle]}>
+      <View
+        style={[styles.container, this.props.containerStyle, this.props.style]}
+      >
         {this.state.tags.map((tag, i) => (
           <Tag
             key={i}
@@ -85,17 +95,20 @@ class Tags extends React.Component {
     );
   }
 }
+
 Tags.defaultProps = {
   initialTags: [],
   initialText: " ",
   readonly: false
 };
+
 Tags.propTypes = {
   initialText: PropTypes.string,
   initialTags: PropTypes.arrayOf(PropTypes.string),
   onChangeTags: PropTypes.func,
   onTagPress: PropTypes.func,
   containerStyle: PropTypes.object,
+  style: PropTypes.object,
   inputStyle: PropTypes.object,
   tagContainerStyle: PropTypes.object,
   tagTextStyle: PropTypes.object,
