@@ -9,7 +9,7 @@ const Tag = ({ label, onPress, tagContainerStyle, tagTextStyle, readonly }) => {
 
   if (readonly) {
     return (
-      <View style={[styles.tag, tagContainerStyle]} onPress={onPress}>
+      <View style={[styles.tag, tagContainerStyle]}>
         {tagText}
       </View>
     )
