@@ -24,7 +24,8 @@ const Tag = ({ label, onPress, tagContainerStyle, tagTextStyle, readonly }) => {
 
 Tag.propTypes = {
   label: PropTypes.string.isRequired,
-  onPress: PropTypes.func
+  onPress: PropTypes.func,
+  readonly: PropTypes.bool
 };
 
 export default Tag;
