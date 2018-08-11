@@ -15,19 +15,6 @@ class Tags extends React.Component {
     };
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (
-      nextProps.initialTags === prevState.initialTags &&
-      nextProps.initialText === prevState.initialText
-    ) {
-      return null;
-    }
-    return {
-      tags: nextProps.initialTags,
-      text: nextProps.initialText
-    };
-  }
-
   componentWillReceiveProps(props) {
     const { initialTags = [], initialText = " " } = props;
 
