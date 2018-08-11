@@ -1,4 +1,4 @@
-# React-Native-Tags (with maximum tag and delete on press support)
+# React-Native-Tags
 
 [![Build Status](https://travis-ci.org/peterp/react-native-tags.svg?branch=master)](https://travis-ci.org/peterp/react-native-tags)
 [![npm](https://img.shields.io/npm/dt/express.svg)](https://www.npmjs.com/package/react-native-tags)
