@@ -9,7 +9,7 @@ export default StyleSheet.create({
 
   textInputContainer: {
     flex: 1,
-    width: 100,
+    minWidth: 100,
     height: 32,
     margin: 4,
     borderRadius: 16,
