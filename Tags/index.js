@@ -77,6 +77,7 @@ class Tags extends React.Component {
             key={i}
             label={tag}
             onPress={e => this.props.onTagPress(i, tag, e)}
+            readonly={this.props.readonly}
             tagContainerStyle={this.props.tagContainerStyle}
             tagTextStyle={this.props.tagTextStyle}
           />
