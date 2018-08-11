@@ -1,4 +1,4 @@
-# React-Native-Tags
+# React-Native-Tags (with maximum tag and delete on press support)
 
 [![Build Status](https://travis-ci.org/peterp/react-native-tags.svg?branch=master)](https://travis-ci.org/peterp/react-native-tags)
 [![npm](https://img.shields.io/npm/dt/express.svg)](https://www.npmjs.com/package/react-native-tags)
@@ -43,6 +43,7 @@ const UselessComponent = () => (
 | initialText       | The input element's text             |
 | initialTags       | ['the', 'initial', 'tags']           |
 | onChangeTags      | Fires when tags are added or removed |
+| maxNumberOfTags        | integer: up to you (mandatory)          |
 | onTagPress        | Fires when tags are pressed          |
 | readonly          | Tags cannot be modified              |
 | containerStyle    | Style                                |
@@ -50,3 +51,4 @@ const UselessComponent = () => (
 | inputStyle        | Style                                |
 | tagContainerStyle | Style                                |
 | tagTextStyle      | Style                                |
+| deleteOnPress  | true/false                       |
