@@ -29,7 +29,9 @@ const UselessComponent = () => (
     initialText="monkey"
     initialTags={["dog", "cat", "chicken"]}
     onChangeTags={tags => console.log(tags)}
-    onTagPress={(index, tagLabel, event) => console.log(index, tagLabel, event)}
+    onTagPress={(index, tagLabel, event, deleted) =>
+      console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
+    }
     containerStyle={{ justifyContent: "center" }}
     inputStyle={{ backgroundColor: "white" }}
   />
@@ -38,17 +40,17 @@ const UselessComponent = () => (
 
 ## Props
 
-| PropName          | Description                          |
-| ----------------- | ------------------------------------ |
-| initialText       | The input element's text             |
-| initialTags       | ['the', 'initial', 'tags']           |
-| onChangeTags      | Fires when tags are added or removed |
-| maxNumberOfTags        | integer: up to you (mandatory)          |
-| onTagPress        | Fires when tags are pressed          |
-| readonly          | Tags cannot be modified              |
-| containerStyle    | Style                                |
-| style             | Style (`containerStyle` alias)       |
-| inputStyle        | Style                                |
-| tagContainerStyle | Style                                |
-| tagTextStyle      | Style                                |
-| deleteOnPress  | true/false                       |
+| PropName          | Description                                | Default  |
+| ----------------- | ------------------------------------------ | -------- |
+| initialText       | The input element's text                   |          |
+| initialTags       | ['the', 'initial', 'tags']                 |          |
+| onChangeTags      | Fires when tags are added or removed       |          |
+| maxNumberOfTags   | The max number of tags that can be entered | infinity |
+| onTagPress        | Fires when tags are pressed                |          |
+| readonly          | Tags cannot be modified                    | false    |
+| deleteTagOnPress  | Remove the tag when pressed                | true     |
+| containerStyle    | Style                                      |          |
+| style             | Style (`containerStyle` alias)             |          |
+| inputStyle        | Style                                      |          |
+| tagContainerStyle | Style                                      |          |
+| tagTextStyle      | Style                                      |          |

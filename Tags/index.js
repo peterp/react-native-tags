@@ -39,7 +39,8 @@ class Tags extends React.Component {
       );
     } else if (
       text.length > 1 &&
-      (text.slice(-1) === " " || text.slice(-1) === ",") && !(this.state.tags.indexOf(text.slice(0, -1).trim()) > -1)
+      (text.slice(-1) === " " || text.slice(-1) === ",") &&
+      !(this.state.tags.indexOf(text.slice(0, -1).trim()) > -1)
     ) {
       this.setState(
         {
@@ -54,51 +55,61 @@ class Tags extends React.Component {
     }
   };
 
-
-  /**
-   * void arraySplice(tag)
-   * uses the array.filter() method provided in Javascript to remove the specific tag from the list.
-   * 
-   * @param {string} tag 
-   */
-  arraySplice(tag) {
-    if (this.props.deleteOnPress == true){
-    this.setState({
-      tags: this.state.tags.filter(e => e !== tag)
-    });
-  }
-}
-  
-
   render() {
+    const {
+      containerStyle,
+      style,
+      tagContainerStyle,
+      tagTextStyle,
+      deleteOnTagPress,
+      onTagPress,
+      readonly,
+      maxNumberOfTags,
+      inputStyle
+    } = this.props;
+
     return (
-      <View
-        style={[styles.container, this.props.containerStyle, this.props.style]}
-      >
+      <View style={[styles.container, containerStyle, style]}>
         {this.state.tags.map((tag, i) => (
           <Tag
             key={i}
             label={tag}
             onPress={e => {
-                     this.arraySplice(tag)
-                     this.props.onTagPress(i, tag, e)
-                    }}
-            readonly={this.props.readonly}
-            tagContainerStyle={this.props.tagContainerStyle}
-            tagTextStyle={this.props.tagTextStyle}
+              if (deleteOnTagPress) {
+                this.setState(
+                  {
+                    tags: [
+                      ...this.state.tags.slice(0, i),
+                      ...this.state.tags.slice(i + 1)
+                    ]
+                  },
+                  () => {
+                    this.props.onChangeTags &&
+                      this.props.onChangeTags(this.state.tags);
+                    onTagPress && onTagPress(i, tag, e, true);
+                  }
+                );
+              } else {
+                onTagPress && onTagPress(i, tag, e, false);
+              }
+            }}
+            readonly={readonly}
+            tagContainerStyle={tagContainerStyle}
+            tagTextStyle={tagTextStyle}
           />
         ))}
 
-        {!this.props.readonly && (this.props.maxNumberOfTags > this.state.tags.length) && (
-          <View style={[styles.textInputContainer]}>
-            <TextInput
-              value={this.state.text}
-              style={[styles.textInput, this.props.inputStyle]}
-              onChangeText={this.onChangeText}
-              underlineColorAndroid="transparent"
-            />
-          </View>
-        )}
+        {!readonly &&
+          maxNumberOfTags > this.state.tags.length && (
+            <View style={[styles.textInputContainer]}>
+              <TextInput
+                value={this.state.text}
+                style={[styles.textInput, inputStyle]}
+                onChangeText={this.onChangeText}
+                underlineColorAndroid="transparent"
+              />
+            </View>
+          )}
       </View>
     );
   }
@@ -107,7 +118,9 @@ class Tags extends React.Component {
 Tags.defaultProps = {
   initialTags: [],
   initialText: " ",
-  readonly: false
+  readonly: false,
+  deleteOnTagPress: true,
+  maxNumberOfTags: Number.POSITIVE_INFINITY
 };
 
 Tags.propTypes = {
@@ -121,7 +134,7 @@ Tags.propTypes = {
   tagTextStyle: PropTypes.object,
   readonly: PropTypes.bool,
   maxNumberOfTags: PropTypes.number,
-  deleteOnPress: PropTypes.bool
+  deleteOnTagPress: PropTypes.bool
 };
 
 export { Tag };
