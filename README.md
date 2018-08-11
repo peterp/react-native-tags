@@ -11,7 +11,7 @@ into a tag when a space or comma is entered.
 ## Installation
 
 ```terminal
-npm install react-native-tags
+npm install --save react-native-tags
 ```
 
 ```terminal
@@ -20,7 +20,7 @@ yarn add react-native-tags
 
 ## Usage
 
-```javascript
+```jsx
 import React from "react";
 import Tags from "react-native-tags";
 
@@ -44,7 +44,8 @@ const UselessComponent = () => (
 | initialTags       | ['the', 'initial', 'tags']           |
 | onChangeTags      | Fires when tags are added or removed |
 | maxNumberOfTags        | integer: up to you (mandatory)          |
-| readonly          | Removes the TextInput                |
+| onTagPress        | Fires when tags are pressed          |
+| readonly          | Tags cannot be modified              |
 | containerStyle    | Style                                |
 | style             | Style (`containerStyle` alias)       |
 | inputStyle        | Style                                |

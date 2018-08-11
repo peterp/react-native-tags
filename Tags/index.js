@@ -15,19 +15,6 @@ class Tags extends React.Component {
     };
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (
-      nextProps.initialTags === prevState.initialTags &&
-      nextProps.initialText === prevState.initialText
-    ) {
-      return null;
-    }
-    return {
-      tags: nextProps.initialTags,
-      text: nextProps.initialText
-    };
-  }
-
   componentWillReceiveProps(props) {
     const { initialTags = [], initialText = " " } = props;
 
@@ -92,7 +79,11 @@ class Tags extends React.Component {
           <Tag
             key={i}
             label={tag}
-            onPress={() => this.arraySplice(tag)}
+            onPress={e => {
+                     this.arraySplice(tag)
+                     this.props.onTagPress(i, tag, e)
+                    }}
+            readonly={this.props.readonly}
             tagContainerStyle={this.props.tagContainerStyle}
             tagTextStyle={this.props.tagTextStyle}
           />
