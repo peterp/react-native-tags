@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/dt/express.svg)](https://www.npmjs.com/package/react-native-tags)
 
 A React Native component that allows you to input text and formats the text
-into a tag when a space or comma is entered.
+into a tag when a space or comma is entered. Tapping on the tag will remove it.
 
 ![Demo](https://camo.githubusercontent.com/e3d6f3f87e625ad787bda1e7b518307d29d21a23/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f6c34394a5036786c6847723138795a46652f67697068792e676966)
 

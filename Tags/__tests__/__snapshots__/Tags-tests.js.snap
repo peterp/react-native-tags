@@ -43,7 +43,7 @@ exports[`Tags should render props correctly 1`] = `
         "paddingRight": 12,
       }
     }
-    testID="tag"
+    testID={undefined}
     tvParallaxProperties={undefined}
   >
     <Text
@@ -92,7 +92,7 @@ exports[`Tags should render props correctly 1`] = `
         "paddingRight": 12,
       }
     }
-    testID="tag"
+    testID={undefined}
     tvParallaxProperties={undefined}
   >
     <Text
@@ -141,7 +141,7 @@ exports[`Tags should render props correctly 1`] = `
         "paddingRight": 12,
       }
     }
-    testID="tag"
+    testID={undefined}
     tvParallaxProperties={undefined}
   >
     <Text
