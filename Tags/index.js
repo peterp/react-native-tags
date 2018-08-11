@@ -52,7 +52,7 @@ class Tags extends React.Component {
       );
     } else if (
       text.length > 1 &&
-      (text.slice(-1) === " " || text.slice(-1) === ",")
+      (text.slice(-1) === " " || text.slice(-1) === ",") && !(this.state.tags.indexOf(text.slice(0, -1).trim()) > -1)
     ) {
       this.setState(
         {
@@ -67,6 +67,22 @@ class Tags extends React.Component {
     }
   };
 
+
+  /**
+   * void arraySplice(tag)
+   * uses the array.filter() method provided in Javascript to remove the specific tag from the list.
+   * 
+   * @param {string} tag 
+   */
+  arraySplice(tag) {
+    if (this.props.deleteOnPress == true){
+    this.setState({
+      tags: this.state.tags.filter(e => e !== tag)
+    });
+  }
+}
+  
+
   render() {
     return (
       <View
@@ -76,12 +92,13 @@ class Tags extends React.Component {
           <Tag
             key={i}
             label={tag}
-            onPress={e => this.props.onTagPress(i, tag, e)}
+            onPress={() => this.arraySplice(tag)}
             tagContainerStyle={this.props.tagContainerStyle}
             tagTextStyle={this.props.tagTextStyle}
           />
         ))}
-        {!this.props.readonly && (
+
+        {!this.props.readonly && (this.props.maxNumberOfTags > this.state.tags.length) && (
           <View style={[styles.textInputContainer]}>
             <TextInput
               value={this.state.text}
@@ -106,13 +123,14 @@ Tags.propTypes = {
   initialText: PropTypes.string,
   initialTags: PropTypes.arrayOf(PropTypes.string),
   onChangeTags: PropTypes.func,
-  onTagPress: PropTypes.func,
   containerStyle: PropTypes.object,
   style: PropTypes.object,
   inputStyle: PropTypes.object,
   tagContainerStyle: PropTypes.object,
   tagTextStyle: PropTypes.object,
-  readonly: PropTypes.bool
+  readonly: PropTypes.bool,
+  maxNumberOfTags: PropTypes.number,
+  deleteOnPress: PropTypes.bool
 };
 
 export { Tag };
