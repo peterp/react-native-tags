@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, TextInput, ViewPropTypes } from "react-native";
 
 import Tag from "./Tag";
 import styles from "./styles";
@@ -65,7 +65,8 @@ class Tags extends React.Component {
       onTagPress,
       readonly,
       maxNumberOfTags,
-      inputStyle
+      inputStyle,
+      inputContainerStyle
     } = this.props;
 
     return (
@@ -101,7 +102,7 @@ class Tags extends React.Component {
 
         {!readonly &&
           maxNumberOfTags > this.state.tags.length && (
-            <View style={[styles.textInputContainer]}>
+            <View style={[styles.textInputContainer, inputContainerStyle]}>
               <TextInput
                 value={this.state.text}
                 style={[styles.textInput, inputStyle]}
@@ -127,14 +128,15 @@ Tags.propTypes = {
   initialText: PropTypes.string,
   initialTags: PropTypes.arrayOf(PropTypes.string),
   onChangeTags: PropTypes.func,
-  containerStyle: PropTypes.object,
-  style: PropTypes.object,
-  inputStyle: PropTypes.object,
-  tagContainerStyle: PropTypes.object,
-  tagTextStyle: PropTypes.object,
   readonly: PropTypes.bool,
   maxNumberOfTags: PropTypes.number,
-  deleteOnTagPress: PropTypes.bool
+  deleteOnTagPress: PropTypes.bool,
+  containerStyle: ViewPropTypes.style,
+  style: ViewPropTypes.style,
+  inputContainerStyle: ViewPropTypes.style,
+  inputStyle: ViewPropTypes.style,
+  tagContainerStyle: ViewPropTypes.style,
+  tagTextStyle: ViewPropTypes.style
 };
 
 export { Tag };
