@@ -1,6 +1,6 @@
 {
   "name": "react-native-tags",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Tag input component for React Native",
   "main": "index.js",
   "scripts": {
@@ -14,8 +14,8 @@
   "author": "Peter Pistorius <peter.pistorius@gmail.com> (http://github.com/peterp/)",
   "license": "MIT",
   "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
+    "react": ">= 16.0",
+    "react-native": ">= 0.44"
   },
   "devDependencies": {
     "babel-jest": "^22.4.3",

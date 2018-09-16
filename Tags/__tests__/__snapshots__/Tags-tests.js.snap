@@ -172,6 +172,7 @@ exports[`Tags should render props correctly 1`] = `
           "margin": 4,
           "minWidth": 100,
         },
+        undefined,
       ]
     }
   >
