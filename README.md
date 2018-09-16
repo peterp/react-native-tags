@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/peterp/react-native-tags.svg?branch=master)](https://travis-ci.org/peterp/react-native-tags)
 [![npm](https://img.shields.io/npm/dt/express.svg)](https://www.npmjs.com/package/react-native-tags)
+[![npm version](https://badge.fury.io/js/react-native-tags.svg)](https://badge.fury.io/js/react-native-tags)
 
 A React Native component that allows you to input text and formats the text
 into a tag when a space or comma is entered. Tapping on the tag will remove it.
