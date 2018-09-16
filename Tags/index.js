@@ -24,6 +24,16 @@ class Tags extends React.Component {
     });
   }
 
+  addTag = text => {
+    this.setState(
+      {
+        tags: [...this.state.tags, text.trim()],
+        text: " "
+      },
+      () => this.props.onChangeTags && this.props.onChangeTags(this.state.tags)
+    );
+  };
+
   onChangeText = text => {
     if (text.length === 0) {
       // `onKeyPress` isn't currently supported on Android; I've placed an extra
@@ -42,17 +52,18 @@ class Tags extends React.Component {
       this.props.createTagOnString.includes(text.slice(-1)) &&
       !(this.state.tags.indexOf(text.slice(0, -1).trim()) > -1)
     ) {
-      this.setState(
-        {
-          tags: [...this.state.tags, text.slice(0, -1).trim()],
-          text: " "
-        },
-        () =>
-          this.props.onChangeTags && this.props.onChangeTags(this.state.tags)
-      );
+      this.addTag(text.slice(0, -1));
     } else {
       this.setState({ text });
     }
+  };
+
+  onSubmitEditing = () => {
+    if (!this.props.createTagOnReturn) {
+      return;
+    }
+
+    this.addTag(this.state.text);
   };
 
   render() {
@@ -107,6 +118,7 @@ class Tags extends React.Component {
                 value={this.state.text}
                 style={[styles.textInput, inputStyle]}
                 onChangeText={this.onChangeText}
+                onSubmitEditing={this.onSubmitEditing}
                 underlineColorAndroid="transparent"
               />
             </View>
@@ -120,6 +132,7 @@ Tags.defaultProps = {
   initialTags: [],
   initialText: " ",
   createTagOnString: [",", " "],
+  createTagOnReturn: false,
   readonly: false,
   deleteOnTagPress: true,
   maxNumberOfTags: Number.POSITIVE_INFINITY
@@ -129,6 +142,7 @@ Tags.propTypes = {
   initialText: PropTypes.string,
   initialTags: PropTypes.arrayOf(PropTypes.string),
   createTagOnString: PropTypes.array,
+  createTagOnReturn: PropTypes.bool,
   onChangeTags: PropTypes.func,
   readonly: PropTypes.bool,
   maxNumberOfTags: PropTypes.number,
