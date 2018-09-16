@@ -39,7 +39,7 @@ class Tags extends React.Component {
       );
     } else if (
       text.length > 1 &&
-      (text.slice(-1) === " " || text.slice(-1) === ",") &&
+      this.props.createTagOnString.includes(text.slice(-1)) &&
       !(this.state.tags.indexOf(text.slice(0, -1).trim()) > -1)
     ) {
       this.setState(
@@ -119,6 +119,7 @@ class Tags extends React.Component {
 Tags.defaultProps = {
   initialTags: [],
   initialText: " ",
+  createTagOnString: [",", " "],
   readonly: false,
   deleteOnTagPress: true,
   maxNumberOfTags: Number.POSITIVE_INFINITY
@@ -127,6 +128,7 @@ Tags.defaultProps = {
 Tags.propTypes = {
   initialText: PropTypes.string,
   initialTags: PropTypes.arrayOf(PropTypes.string),
+  createTagOnString: PropTypes.array,
   onChangeTags: PropTypes.func,
   readonly: PropTypes.bool,
   maxNumberOfTags: PropTypes.number,
