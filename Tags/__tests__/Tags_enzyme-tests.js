@@ -20,6 +20,16 @@ describe("Tags", () => {
         expect(onChangeTags.mock.calls).toEqual([[["dog"]], [["dog", "cat"]]]);
       });
 
+      it("should add a new tag when return is pressed", () => {
+        const onChangeTags = jest.fn();
+        const wrapper = shallow(
+          <Tags createTagOnReturn onChangeTags={onChangeTags} />
+        ).find("TextInput");
+        wrapper.simulate("ChangeText", "dog");
+        wrapper.simulate("SubmitEditing");
+        expect(onChangeTags.mock.calls).toEqual([[["dog"]]]);
+      });
+
       it("should remove a tag when the text is empty", () => {
         const onChangeTags = jest.fn();
         const wrapper = shallow(<Tags onChangeTags={onChangeTags} />).find(

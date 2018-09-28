@@ -179,6 +179,7 @@ exports[`Tags should render props correctly 1`] = `
     <TextInput
       allowFontScaling={true}
       onChangeText={[Function]}
+      onSubmitEditing={[Function]}
       style={
         Array [
           Object {
