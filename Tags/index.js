@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, TextInput, ViewPropTypes } from "react-native";
+import { View, TextInput } from "react-native";
 
 import Tag from "./Tag";
 import styles from "./styles";
@@ -147,12 +147,12 @@ Tags.propTypes = {
   readonly: PropTypes.bool,
   maxNumberOfTags: PropTypes.number,
   deleteOnTagPress: PropTypes.bool,
-  containerStyle: ViewPropTypes.style,
-  style: ViewPropTypes.style,
-  inputContainerStyle: ViewPropTypes.style,
-  inputStyle: ViewPropTypes.style,
-  tagContainerStyle: ViewPropTypes.style,
-  tagTextStyle: ViewPropTypes.style
+  containerStyle: PropTypes.any,
+  style: PropTypes.any,
+  inputContainerStyle: PropTypes.any,
+  inputStyle: PropTypes.any,
+  tagContainerStyle: PropTypes.any,
+  tagTextStyle: PropTypes.any
 };
 
 export { Tag };
