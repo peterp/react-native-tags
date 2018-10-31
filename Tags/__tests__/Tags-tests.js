@@ -17,4 +17,18 @@ describe("Tags", () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  describe("textInputProps", () => {
+    const tree = renderer
+      .create(
+        <Tags
+          initialText="monkey gland sauce"
+          textInputProps={{ placeholder: "testy text" }}
+          initialTags={["tomato sauce", "mustard", "mayo"]}
+          onChangeTags={noop}
+        />
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

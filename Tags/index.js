@@ -77,7 +77,8 @@ class Tags extends React.Component {
       readonly,
       maxNumberOfTags,
       inputStyle,
-      inputContainerStyle
+      inputContainerStyle,
+      textInputProps
     } = this.props;
 
     return (
@@ -115,6 +116,7 @@ class Tags extends React.Component {
           maxNumberOfTags > this.state.tags.length && (
             <View style={[styles.textInputContainer, inputContainerStyle]}>
               <TextInput
+                {...textInputProps}
                 value={this.state.text}
                 style={[styles.textInput, inputStyle]}
                 onChangeText={this.onChangeText}
@@ -152,7 +154,9 @@ Tags.propTypes = {
   inputContainerStyle: PropTypes.any,
   inputStyle: PropTypes.any,
   tagContainerStyle: PropTypes.any,
-  tagTextStyle: PropTypes.any
+  tagTextStyle: PropTypes.any,
+  /* these props are spread over the textInput */
+  textInputProps: PropTypes.object
 };
 
 export { Tag };

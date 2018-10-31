@@ -28,6 +28,9 @@ import Tags from "react-native-tags";
 const UselessComponent = () => (
   <Tags
     initialText="monkey"
+    textInputProps={{
+      placeholder: "Any type of animal"
+    }}
     initialTags={["dog", "cat", "chicken"]}
     onChangeTags={tags => console.log(tags)}
     onTagPress={(index, tagLabel, event, deleted) =>
@@ -41,19 +44,20 @@ const UselessComponent = () => (
 
 ## Props
 
-| PropName            | Description                                | Default         |
-| ------------------- | ------------------------------------------ | --------------- |
-| initialText         | The input element's text                   |                 |
-| initialTags         | ['the', 'initial', 'tags']                 |                 |
-| createTagOnString   | Triggers new tag creation                  | [",", ".", " "] |
-| onChangeTags        | Fires when tags are added or removed       |                 |
-| maxNumberOfTags     | The max number of tags that can be entered | infinity        |
-| onTagPress          | Fires when tags are pressed                |                 |
-| readonly            | Tags cannot be modified                    | false           |
-| deleteTagOnPress    | Remove the tag when pressed                | true            |
-| containerStyle      | Style                                      |                 |
-| style               | Style (`containerStyle` alias)             |                 |
-| inputContainerStyle | Style                                      |                 |
-| inputStyle          | Style                                      |                 |
-| tagContainerStyle   | Style                                      |                 |
-| tagTextStyle        | Style                                      |                 |
+| PropName            | Description                                                                              | Default         |
+| ------------------- | ---------------------------------------------------------------------------------------- | --------------- |
+| initialText         | The input element's text                                                                 |                 |
+| textInputProps      | [customize the textInput])(https://facebook.github.io/react-native/docs/textinput#props) |                 |
+| initialTags         | ['the', 'initial', 'tags']                                                               |                 |
+| createTagOnString   | Triggers new tag creation                                                                | [",", ".", " "] |
+| onChangeTags        | Fires when tags are added or removed                                                     |                 |
+| maxNumberOfTags     | The max number of tags that can be entered                                               | infinity        |
+| onTagPress          | Fires when tags are pressed                                                              |                 |
+| readonly            | Tags cannot be modified                                                                  | false           |
+| deleteTagOnPress    | Remove the tag when pressed                                                              | true            |
+| containerStyle      | Style                                                                                    |                 |
+| style               | Style (`containerStyle` alias)                                                           |                 |
+| inputContainerStyle | Style                                                                                    |                 |
+| inputStyle          | Style                                                                                    |                 |
+| tagContainerStyle   | Style                                                                                    |                 |
+| tagTextStyle        | Style                                                                                    |                 |
