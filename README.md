@@ -44,20 +44,20 @@ const UselessComponent = () => (
 
 ## Props
 
-| PropName            | Description                                                                              | Default         |
-| ------------------- | ---------------------------------------------------------------------------------------- | --------------- |
-| initialText         | The input element's text                                                                 |                 |
-| textInputProps      | [customize the textInput])(https://facebook.github.io/react-native/docs/textinput#props) |                 |
-| initialTags         | ['the', 'initial', 'tags']                                                               |                 |
-| createTagOnString   | Triggers new tag creation                                                                | [",", ".", " "] |
-| onChangeTags        | Fires when tags are added or removed                                                     |                 |
-| maxNumberOfTags     | The max number of tags that can be entered                                               | infinity        |
-| onTagPress          | Fires when tags are pressed                                                              |                 |
-| readonly            | Tags cannot be modified                                                                  | false           |
-| deleteTagOnPress    | Remove the tag when pressed                                                              | true            |
-| containerStyle      | Style                                                                                    |                 |
-| style               | Style (`containerStyle` alias)                                                           |                 |
-| inputContainerStyle | Style                                                                                    |                 |
-| inputStyle          | Style                                                                                    |                 |
-| tagContainerStyle   | Style                                                                                    |                 |
-| tagTextStyle        | Style                                                                                    |                 |
+| PropName            | Description                                                                                    | Default         |
+| ------------------- | ---------------------------------------------------------------------------------------------- | --------------- |
+| initialText         | The input element's text                                                                       |                 |
+| textInputProps      | [forward props to the textInput](https://facebook.github.io/react-native/docs/textinput#props) |                 |
+| initialTags         | ['the', 'initial', 'tags']                                                                     |                 |
+| createTagOnString   | Triggers new tag creation                                                                      | [",", ".", " "] |
+| onChangeTags        | Fires when tags are added or removed                                                           |                 |
+| maxNumberOfTags     | The max number of tags that can be entered                                                     | infinity        |
+| onTagPress          | Fires when tags are pressed                                                                    |                 |
+| readonly            | Tags cannot be modified                                                                        | false           |
+| deleteTagOnPress    | Remove the tag when pressed                                                                    | true            |
+| containerStyle      | Style                                                                                          |                 |
+| style               | Style (`containerStyle` alias)                                                                 |                 |
+| inputContainerStyle | Style                                                                                          |                 |
+| inputStyle          | Style                                                                                          |                 |
+| tagContainerStyle   | Style                                                                                          |                 |
+| tagTextStyle        | Style                                                                                          |                 |
