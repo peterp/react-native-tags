@@ -29,7 +29,8 @@ const UselessComponent = () => (
   <Tags
     initialText="monkey"
     textInputProps={{
-      placeholder: "Any type of animal"
+      placeholder: "Any type of animal" // object notation for attributes
+      ref: (tagsRef) => (this.tagsRef = tagsRef) // passes all properties forward into TextInput
     }}
     initialTags={["dog", "cat", "chicken"]}
     onChangeTags={tags => console.log(tags)}
