@@ -7,6 +7,37 @@ import Tags from "../../";
 enzyme.configure({ adapter: new Adapter() });
 
 describe("Tags", () => {
+  describe("tags", () => {
+    it("removes a tag when you press them", () => {
+      const wrapper = shallow(
+        <Tags initialTags={["this", "is", "a", "test"]} />
+      );
+
+      wrapper
+        .find("Tag")
+        .at(1)
+        .simulate("press");
+
+      expect(wrapper.find("Tag").length).toEqual(3);
+    });
+
+    it("doesn't remove tags when they're readonly", () => {
+      const wrapper = shallow(
+        <Tags
+          deleteTagOnPress={false}
+          initialTags={["this", "is", "a", "test"]}
+        />
+      );
+
+      wrapper
+        .find("Tag")
+        .at(0)
+        .simulate("press");
+
+      expect(wrapper.find("Tag").length).toEqual(4);
+    });
+  });
+
   describe("TextInput", () => {
     describe("onChangeText", () => {
       it("should add a new tag when a space, or comma is detected", () => {
