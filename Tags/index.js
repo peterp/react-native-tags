@@ -72,7 +72,7 @@ class Tags extends React.Component {
       style,
       tagContainerStyle,
       tagTextStyle,
-      deleteOnTagPress,
+      deleteTagOnPress,
       onTagPress,
       readonly,
       maxNumberOfTags,
@@ -88,7 +88,7 @@ class Tags extends React.Component {
             key={i}
             label={tag}
             onPress={e => {
-              if (deleteOnTagPress) {
+              if (deleteTagOnPress) {
                 this.setState(
                   {
                     tags: [
@@ -112,19 +112,18 @@ class Tags extends React.Component {
           />
         ))}
 
-        {!readonly &&
-          maxNumberOfTags > this.state.tags.length && (
-            <View style={[styles.textInputContainer, inputContainerStyle]}>
-              <TextInput
-                {...textInputProps}
-                value={this.state.text}
-                style={[styles.textInput, inputStyle]}
-                onChangeText={this.onChangeText}
-                onSubmitEditing={this.onSubmitEditing}
-                underlineColorAndroid="transparent"
-              />
-            </View>
-          )}
+        {!readonly && maxNumberOfTags > this.state.tags.length && (
+          <View style={[styles.textInputContainer, inputContainerStyle]}>
+            <TextInput
+              {...textInputProps}
+              value={this.state.text}
+              style={[styles.textInput, inputStyle]}
+              onChangeText={this.onChangeText}
+              onSubmitEditing={this.onSubmitEditing}
+              underlineColorAndroid="transparent"
+            />
+          </View>
+        )}
       </View>
     );
   }
@@ -136,7 +135,7 @@ Tags.defaultProps = {
   createTagOnString: [",", " "],
   createTagOnReturn: false,
   readonly: false,
-  deleteOnTagPress: true,
+  deleteTagOnPress: true,
   maxNumberOfTags: Number.POSITIVE_INFINITY
 };
 
@@ -148,7 +147,7 @@ Tags.propTypes = {
   onChangeTags: PropTypes.func,
   readonly: PropTypes.bool,
   maxNumberOfTags: PropTypes.number,
-  deleteOnTagPress: PropTypes.bool,
+  deleteTagOnPress: PropTypes.bool,
   containerStyle: PropTypes.any,
   style: PropTypes.any,
   inputContainerStyle: PropTypes.any,
