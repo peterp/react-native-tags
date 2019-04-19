@@ -15,16 +15,8 @@ exports[` 1`] = `
   }
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -43,13 +35,8 @@ exports[` 1`] = `
         "paddingRight": 12,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -64,16 +51,8 @@ exports[` 1`] = `
     </Text>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -92,13 +71,8 @@ exports[` 1`] = `
         "paddingRight": 12,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -113,16 +87,8 @@ exports[` 1`] = `
     </Text>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -141,13 +107,8 @@ exports[` 1`] = `
         "paddingRight": 12,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -181,6 +142,7 @@ exports[` 1`] = `
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="testy text"
+      rejectResponderTermination={true}
       style={
         Array [
           Object {
@@ -203,6 +165,71 @@ exports[` 1`] = `
 </View>
 `;
 
+exports[`Tags renderTag prop allows me to render a custom tag with a function 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <Text>
+    palm
+  </Text>
+  <Text>
+    oil
+  </Text>
+  <Text>
+    sucks
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ccc",
+          "borderRadius": 16,
+          "flex": 1,
+          "height": 32,
+          "margin": 4,
+          "minWidth": 100,
+        },
+        undefined,
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "flex": 1,
+            "fontSize": 13,
+            "height": 32,
+            "margin": 0,
+            "padding": 0,
+            "paddingLeft": 12,
+            "paddingRight": 12,
+          },
+          undefined,
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+</View>
+`;
+
 exports[`Tags should render props correctly 1`] = `
 <View
   style={
@@ -218,16 +245,8 @@ exports[`Tags should render props correctly 1`] = `
   }
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -246,13 +265,8 @@ exports[`Tags should render props correctly 1`] = `
         "paddingRight": 12,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -267,16 +281,8 @@ exports[`Tags should render props correctly 1`] = `
     </Text>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -295,13 +301,8 @@ exports[`Tags should render props correctly 1`] = `
         "paddingRight": 12,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -316,16 +317,8 @@ exports[`Tags should render props correctly 1`] = `
     </Text>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -344,13 +337,8 @@ exports[`Tags should render props correctly 1`] = `
         "paddingRight": 12,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -383,6 +371,7 @@ exports[`Tags should render props correctly 1`] = `
       allowFontScaling={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
+      rejectResponderTermination={true}
       style={
         Array [
           Object {

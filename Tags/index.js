@@ -78,39 +78,42 @@ class Tags extends React.Component {
       maxNumberOfTags,
       inputStyle,
       inputContainerStyle,
-      textInputProps
+      textInputProps,
+      renderTag
     } = this.props;
 
     return (
       <View style={[styles.container, containerStyle, style]}>
-        {this.state.tags.map((tag, i) => (
-          <Tag
-            key={i}
-            label={tag}
-            onPress={e => {
-              if (deleteTagOnPress) {
+        {this.state.tags.map((tag, index) => {
+          const tagProps = {
+            tag,
+            index,
+            deleteTagOnPress,
+            onPress: e => {
+              if (deleteTagOnPress && !readonly) {
                 this.setState(
                   {
                     tags: [
-                      ...this.state.tags.slice(0, i),
-                      ...this.state.tags.slice(i + 1)
+                      ...this.state.tags.slice(0, index),
+                      ...this.state.tags.slice(index + 1)
                     ]
                   },
                   () => {
                     this.props.onChangeTags &&
                       this.props.onChangeTags(this.state.tags);
-                    onTagPress && onTagPress(i, tag, e, true);
+                    onTagPress && onTagPress(index, tag, e, true);
                   }
                 );
               } else {
-                onTagPress && onTagPress(i, tag, e, false);
+                onTagPress && onTagPress(index, tag, e, false);
               }
-            }}
-            readonly={readonly}
-            tagContainerStyle={tagContainerStyle}
-            tagTextStyle={tagTextStyle}
-          />
-        ))}
+            },
+            tagContainerStyle,
+            tagTextStyle
+          };
+
+          return renderTag(tagProps);
+        })}
 
         {!readonly && maxNumberOfTags > this.state.tags.length && (
           <View style={[styles.textInputContainer, inputContainerStyle]}>
@@ -136,7 +139,10 @@ Tags.defaultProps = {
   createTagOnReturn: false,
   readonly: false,
   deleteTagOnPress: true,
-  maxNumberOfTags: Number.POSITIVE_INFINITY
+  maxNumberOfTags: Number.POSITIVE_INFINITY,
+  renderTag: ({ tag, index, ...rest }) => (
+    <Tag key={`${tag}-${index}`} label={tag} {...rest} />
+  )
 };
 
 Tags.propTypes = {
@@ -148,13 +154,14 @@ Tags.propTypes = {
   readonly: PropTypes.bool,
   maxNumberOfTags: PropTypes.number,
   deleteTagOnPress: PropTypes.bool,
+  renderTag: PropTypes.func,
+  /* style props */
   containerStyle: PropTypes.any,
   style: PropTypes.any,
   inputContainerStyle: PropTypes.any,
   inputStyle: PropTypes.any,
   tagContainerStyle: PropTypes.any,
   tagTextStyle: PropTypes.any,
-  /* these props are spread over the textInput */
   textInputProps: PropTypes.object
 };
 
