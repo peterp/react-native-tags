@@ -23,7 +23,7 @@ yarn add react-native-tags
 
 ```jsx
 import React from "react";
-import { TouchableOpacity, View } from "react-native"
+import { TouchableOpacity, Text } from "react-native";
 import Tags from "react-native-tags";
 
 const MyTagInput = () => (
@@ -40,7 +40,9 @@ const MyTagInput = () => (
     containerStyle={{ justifyContent: "center" }}
     inputStyle={{ backgroundColor: "white" }}
     renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
-      <TouchableOpacity key={`${tag}-${index}`} onPress={onPress}><Text>{tag}<Text></TouchableOpacity>
+      <TouchableOpacity key={`${tag}-${index}`} onPress={onPress}>
+        <Text>{tag}</Text>
+      </TouchableOpacity>
     )}
   />
 );
