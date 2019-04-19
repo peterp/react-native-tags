@@ -26,7 +26,7 @@ import React from "react";
 import { TouchableOpacity, View } from "react-native"
 import Tags from "react-native-tags";
 
-const UselessComponent = () => (
+const MyTagInput = () => (
   <Tags
     initialText="monkey"
     textInputProps={{
