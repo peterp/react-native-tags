@@ -8,6 +8,9 @@
     "tag input"
   ],
   "main": "index.js",
+  "files": [
+    "Tags/*.js"
+  ],
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch"
