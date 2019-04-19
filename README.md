@@ -23,6 +23,7 @@ yarn add react-native-tags
 
 ```jsx
 import React from "react";
+import { TouchableOpacity, View } from "react-native"
 import Tags from "react-native-tags";
 
 const UselessComponent = () => (
@@ -38,26 +39,48 @@ const UselessComponent = () => (
     }
     containerStyle={{ justifyContent: "center" }}
     inputStyle={{ backgroundColor: "white" }}
+    renderTag={({ tag, index, onPress, deleteTagOnPress, readonly }) => (
+      <TouchableOpacity key={`${tag}-${index}`} onPress={onPress}><Text>{tag}<Text></TouchableOpacity>
+    )}
   />
 );
 ```
 
+## Render Props
+
+### `renderTag`
+
+If you would like to add new functionality or modify the way that the tags are
+rendered then pass in a renderTag prop.
+
+| PropName | Description                                                  |
+| -------- | ------------------------------------------------------------ |
+| tag      | text of the tag                                              |
+| index    | position in the array of tags                                |
+| onPress  | Removes the tag if `deleteTagsOnPress` and readonly is false |
+
 ## Props
 
-| PropName            | Description                                                                                    | Default         |
-| ------------------- | ---------------------------------------------------------------------------------------------- | --------------- |
-| initialText         | The input element's text                                                                       |                 |
-| textInputProps      | [forward props to the textInput](https://facebook.github.io/react-native/docs/textinput#props) |                 |
-| initialTags         | ['the', 'initial', 'tags']                                                                     |                 |
-| createTagOnString   | Triggers new tag creation                                                                      | [",", ".", " "] |
-| onChangeTags        | Fires when tags are added or removed                                                           |                 |
-| maxNumberOfTags     | The max number of tags that can be entered                                                     | infinity        |
-| onTagPress          | Fires when tags are pressed                                                                    |                 |
-| readonly            | Tags cannot be modified                                                                        | false           |
-| deleteTagOnPress    | Remove the tag when pressed                                                                    | true            |
-| containerStyle      | Style                                                                                          |                 |
-| style               | Style (`containerStyle` alias)                                                                 |                 |
-| inputContainerStyle | Style                                                                                          |                 |
-| inputStyle          | Style                                                                                          |                 |
-| tagContainerStyle   | Style                                                                                          |                 |
-| tagTextStyle        | Style                                                                                          |                 |
+| PropName          | Description                                                                                    | Default         |
+| ----------------- | ---------------------------------------------------------------------------------------------- | --------------- |
+| initialText       | The input element's text                                                                       |                 |
+| textInputProps    | [forward props to the textInput](https://facebook.github.io/react-native/docs/textinput#props) |                 |
+| initialTags       | ['the', 'initial', 'tags']                                                                     |                 |
+| createTagOnString | Triggers new tag creation                                                                      | [",", ".", " "] |
+| onChangeTags      | Fires when tags are added or removed                                                           |                 |
+| maxNumberOfTags   | The max number of tags that can be entered                                                     | infinity        |
+| onTagPress        | Fires when tags are pressed                                                                    |                 |
+| readonly          | Tags cannot be modified                                                                        | false           |
+| deleteTagOnPress  | Remove the tag when pressed                                                                    | true            |
+| renderTag         | Manage the rendering of your own `Tag`                                                         |                 |
+
+## Style modification props
+
+| PropName            | Description                    | Default |
+| ------------------- | ------------------------------ | ------- |
+| style               | Style (`containerStyle` alias) |         |
+| containerStyle      | Style                          |         |
+| inputContainerStyle | Style                          |         |
+| inputStyle          | Style                          |         |
+| tagContainerStyle   | Style                          |         |
+| tagTextStyle        | Style                          |         |
