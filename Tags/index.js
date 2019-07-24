@@ -118,12 +118,12 @@ class Tags extends React.Component {
         {!readonly && maxNumberOfTags > this.state.tags.length && (
           <View style={[styles.textInputContainer, inputContainerStyle]}>
             <TextInput
-              {...textInputProps}
               value={this.state.text}
               style={[styles.textInput, inputStyle]}
               onChangeText={this.onChangeText}
               onSubmitEditing={this.onSubmitEditing}
               underlineColorAndroid="transparent"
+              {...textInputProps}
             />
           </View>
         )}
