@@ -15,15 +15,6 @@ class Tags extends React.Component {
     };
   }
 
-  componentWillReceiveProps(props) {
-    const { initialTags = [], initialText = " " } = props;
-
-    this.setState({
-      tags: initialTags,
-      text: initialText
-    });
-  }
-
   addTag = text => {
     this.setState(
       {
