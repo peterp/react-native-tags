@@ -32,9 +32,9 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "jest": "^25.1.0",
     "prop-types": "^15.7.2",
-    "react": "16.8.3",
+    "react": "16.13.0",
     "react-dom": "16.13.0",
-    "react-native": "^0.59.5",
+    "react-native": "^0.61.5",
     "react-test-renderer": "^16.13.0"
   },
   "jest": {
