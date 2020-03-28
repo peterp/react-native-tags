@@ -38,10 +38,12 @@ class Tags extends React.Component {
   };
 
   onChangeText = text => {
+    const regex = new RegExp(`^[${this.props.createTagOnString.join("")}]+$`, 'g');
     if (text.length === 0) {
       this.showLastTag();
     } else if (
       text.length > 1 &&
+      !text.match(regex) &&
       this.props.createTagOnString.includes(text.slice(-1)) &&
       !(this.state.tags.indexOf(text.slice(0, -1).trim()) > -1)
     ) {
@@ -99,7 +101,8 @@ class Tags extends React.Component {
       renderTag
     } = this.props;
 
-    const onPress = e => {
+    const onPress = event => {
+      event.persist();
       if (deleteTagOnPress && !readonly) {
         this.setState(state =>
           ({
@@ -111,11 +114,11 @@ class Tags extends React.Component {
           () => {
             this.props.onChangeTags &&
               this.props.onChangeTags(this.state.tags);
-            onTagPress && onTagPress(index, tag, e, true);
+            onTagPress && onTagPress(index, tag, event, true);
           }
         );
       } else {
-        onTagPress && onTagPress(index, tag, e, false);
+        onTagPress && onTagPress(index, tag, event, false);
       }
     };
 
