@@ -6,6 +6,9 @@ import styles from "./styles";
 const Input = (props) => {
 
   const {
+    value,
+    onChangeText,
+    onSubmitEditing,
     inputStyle,
     inputContainerStyle,
     textInputProps
@@ -16,15 +19,14 @@ const Input = (props) => {
       <TextInput
         {...textInputProps}
         style={[styles.textInput, inputStyle]}
-
-        value={props.value}
-        onChangeText={props.onChangeText}
-        onSubmitEditing={props.onSubmitEditing}
-        
+        value={value}
+        onChangeText={onChangeText}
+        onSubmitEditing={onSubmitEditing}
         underlineColorAndroid="transparent"
       />
     </View>
   );
+  
 };
 
 export {Input};
