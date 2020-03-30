@@ -16,7 +16,7 @@ describe("Tags", () => {
       wrapper
         .find("Tag")
         .at(1)
-        .simulate("press");
+        .simulate("press", { persist: jest.fn()});
 
       expect(wrapper.find("Tag").length).toEqual(3);
     });
@@ -32,18 +32,18 @@ describe("Tags", () => {
       wrapper
         .find("Tag")
         .at(0)
-        .simulate("press");
+        .simulate("press", { persist: jest.fn()});
 
       expect(wrapper.find("Tag").length).toEqual(4);
     });
   });
 
-  describe("TextInput", () => {
+  describe("Input", () => {
     describe("onChangeText", () => {
       it("should add a new tag when a space, or comma is detected", () => {
         const onChangeTags = jest.fn();
         const wrapper = shallow(<Tags onChangeTags={onChangeTags} />).find(
-          "TextInput"
+          "Input"
         );
         wrapper.simulate("ChangeText", "dog ");
         expect(onChangeTags.mock.calls).toEqual([[["dog"]]]);
@@ -55,7 +55,7 @@ describe("Tags", () => {
         const onChangeTags = jest.fn();
         const wrapper = shallow(
           <Tags createTagOnReturn onChangeTags={onChangeTags} />
-        ).find("TextInput");
+        ).find("Input");
         wrapper.simulate("ChangeText", "dog");
         wrapper.simulate("SubmitEditing");
         expect(onChangeTags.mock.calls).toEqual([[["dog"]]]);
@@ -64,7 +64,7 @@ describe("Tags", () => {
       it("should remove a tag when the text is empty", () => {
         const onChangeTags = jest.fn();
         const wrapper = shallow(<Tags onChangeTags={onChangeTags} />).find(
-          "TextInput"
+          "Input"
         );
         wrapper.simulate("ChangeText", "dog ");
         expect(onChangeTags.mock.calls).toEqual([[["dog"]]]);
@@ -73,16 +73,16 @@ describe("Tags", () => {
       });
 
       it("text input should not be available if it's readyonly", () => {
-        const wrapper = shallow(<Tags readonly />).find("TextInput");
+        const wrapper = shallow(<Tags readonly />).find("Input");
         expect(wrapper.length).toEqual(0);
       });
 
-      it("textinput should dissapear after maxNumberOfTags is reached", () => {
+      it("input should dissapear after maxNumberOfTags is reached", () => {
         const wrapper = shallow(
           <Tags initialTags={["love"]} maxNumberOfTags={2} />
         );
-        wrapper.find("TextInput").simulate("ChangeText", "dog ");
-        expect(wrapper.find("TextInput").length).toEqual(0);
+        wrapper.find("Input").simulate("ChangeText", "dog ");
+        expect(wrapper.find("Input").length).toEqual(0);
       });
     });
   });
