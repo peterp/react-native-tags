@@ -26,8 +26,8 @@ const Input = (props) => {
       />
     </View>
   );
-  
+
 };
 
-export {Input};
+export { Input };
 export default Input;
