@@ -5,13 +5,15 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "yarn postinstall && react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "cp -R ../../index.js ../../package.json ../../Tags node_modules/react-native-tags"
   },
   "dependencies": {
     "react": "16.13.1",
-    "react-native": "0.63.2"
+    "react-native": "0.63.2",
+    "react-native-tags": "^2.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

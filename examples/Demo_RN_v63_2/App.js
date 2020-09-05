@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
-import Tags from '../../Tags';
+import Tags from 'react-native-tags';
 
 class App extends Component {
   constructor(props) {

@@ -1,2 +1,4 @@
 node_modules/
 .jsconfig.json
+.DS_Store
+package-lock.json
