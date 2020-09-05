@@ -1,6 +1,6 @@
 {
   "name": "react-native-tags",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Tag input component for React Native",
   "keywords": [
     "react native",
@@ -22,20 +22,20 @@
   "author": "Peter Pistorius <peter.pistorius@gmail.com> (http://github.com/peterp/)",
   "license": "MIT",
   "peerDependencies": {
-    "react": ">= 16.0",
-    "react-native": ">= 0.44"
+    "react": ">=16.13",
+    "react-native": ">=0.61"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
+    "@babel/core": "^7.8.7",
     "babel-preset-react-native": "^4.0.1",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.12.1",
-    "jest": "^24.7.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^25.1.0",
     "prop-types": "^15.7.2",
-    "react": "16.8.3",
-    "react-dom": "16.8.3",
-    "react-native": "^0.59.5",
-    "react-test-renderer": "^16.8.3"
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
+    "react-native": "^0.61.5",
+    "react-test-renderer": "^16.13.0"
   },
   "jest": {
     "preset": "react-native",

@@ -1,55 +1,49 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, TextInput } from "react-native";
+import { View } from "react-native";
 
 import Tag from "./Tag";
+import Input from "./Input";
 import styles from "./styles";
 
 class Tags extends React.Component {
+
   constructor(props) {
     super(props);
-
     this.state = {
       tags: props.initialTags,
       text: props.initialText
     };
-  }
+  };
 
-  componentWillReceiveProps(props) {
-    const { initialTags = [], initialText = " " } = props;
-
-    this.setState({
-      tags: initialTags,
-      text: initialText
-    });
-  }
+  showLastTag = () => {
+    this.setState(state =>
+      ({
+        tags: state.tags.slice(0, -1),
+        text: state.tags.slice(-1)[0] || " "
+      }),
+      () =>
+        this.props.onChangeTags && this.props.onChangeTags(this.state.tags)
+    );
+  };
 
   addTag = text => {
-    this.setState(
-      {
-        tags: [...this.state.tags, text.trim()],
+    this.setState(state =>
+      ({
+        tags: [...state.tags, text.trim()],
         text: " "
-      },
+      }),
       () => this.props.onChangeTags && this.props.onChangeTags(this.state.tags)
     );
   };
 
   onChangeText = text => {
     if (text.length === 0) {
-      // `onKeyPress` isn't currently supported on Android; I've placed an extra
-      //  space character at the start of `TextInput` which is used to determine if the
-      //  user is erasing.
-      this.setState(
-        {
-          tags: this.state.tags.slice(0, -1),
-          text: this.state.tags.slice(-1)[0] || " "
-        },
-        () =>
-          this.props.onChangeTags && this.props.onChangeTags(this.state.tags)
-      );
+      this.showLastTag();
     } else if (
       text.length > 1 &&
       this.props.createTagOnString.includes(text.slice(-1)) &&
+      !text.match(new RegExp(`^[${this.props.createTagOnString.join("")}]+$`, 'g')) &&
       !(this.state.tags.indexOf(text.slice(0, -1).trim()) > -1)
     ) {
       this.addTag(text.slice(0, -1));
@@ -62,50 +56,50 @@ class Tags extends React.Component {
     if (!this.props.createTagOnReturn) {
       return;
     }
-
     this.addTag(this.state.text);
   };
 
   render() {
+
     const {
       containerStyle,
       style,
+      readonly,
+      maxNumberOfTags,
       tagContainerStyle,
       tagTextStyle,
       deleteTagOnPress,
       onTagPress,
-      readonly,
-      maxNumberOfTags,
-      inputStyle,
-      inputContainerStyle,
-      textInputProps,
       renderTag
     } = this.props;
 
     return (
       <View style={[styles.container, containerStyle, style]}>
+
         {this.state.tags.map((tag, index) => {
+
           const tagProps = {
             tag,
             index,
             deleteTagOnPress,
-            onPress: e => {
+            onPress: event => {
+              event.persist();
               if (deleteTagOnPress && !readonly) {
-                this.setState(
-                  {
+                this.setState(state =>
+                  ({
                     tags: [
-                      ...this.state.tags.slice(0, index),
-                      ...this.state.tags.slice(index + 1)
+                      ...state.tags.slice(0, index),
+                      ...state.tags.slice(index + 1)
                     ]
-                  },
+                  }),
                   () => {
                     this.props.onChangeTags &&
                       this.props.onChangeTags(this.state.tags);
-                    onTagPress && onTagPress(index, tag, e, true);
+                    onTagPress && onTagPress(index, tag, event, true);
                   }
                 );
               } else {
-                onTagPress && onTagPress(index, tag, e, false);
+                onTagPress && onTagPress(index, tag, event, false);
               }
             },
             tagContainerStyle,
@@ -115,21 +109,21 @@ class Tags extends React.Component {
           return renderTag(tagProps);
         })}
 
-        {!readonly && maxNumberOfTags > this.state.tags.length && (
-          <View style={[styles.textInputContainer, inputContainerStyle]}>
-            <TextInput
-              {...textInputProps}
+        {!readonly 
+          && maxNumberOfTags > this.state.tags.length 
+          && 
+            <Input 
               value={this.state.text}
-              style={[styles.textInput, inputStyle]}
-              onChangeText={this.onChangeText}
+              onChangeText={this.onChangeText} 
               onSubmitEditing={this.onSubmitEditing}
-              underlineColorAndroid="transparent"
+              {...this.props}
             />
-          </View>
-        )}
+        }
+
       </View>
     );
-  }
+  };
+
 }
 
 Tags.defaultProps = {
@@ -165,5 +159,5 @@ Tags.propTypes = {
   textInputProps: PropTypes.object
 };
 
-export { Tag };
+export { Tags };
 export default Tags;
