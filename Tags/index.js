@@ -16,29 +16,66 @@ class Tags extends React.Component {
     };
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.onAddTag) {
+      this.addTag(nextProps.addedTag.tag_name, 0, nextProps.addedTag.fk_tag_id);
+      this.props.onAddTagSuccess(false)
+    }
+  }
+
   showLastTag = () => {
     this.setState(state =>
       ({
         tags: state.tags.slice(0, -1),
-        text: state.tags.slice(-1)[0] || " "
+        text: state.tags.slice(-1)[0] || ""
       }),
       () =>
         this.props.onChangeTags && this.props.onChangeTags(this.state.tags)
     );
   };
 
-  addTag = text => {
-    this.setState(state =>
-      ({
-        tags: [...state.tags, text.trim()],
-        text: " "
-      }),
-      () => this.props.onChangeTags && this.props.onChangeTags(this.state.tags)
-    );
+  addTag = (text, isNew, tagId = '') => {
+    let updatedText = ''
+    let duplicateTag = false
+    if (text.charAt(0) === '#')
+      updatedText = text
+    else
+      updatedText = '#' + text
+
+    //Check for duplicate hashtags
+    this.state.tags.map(item => {
+      if (item.tagname === updatedText) {
+        duplicateTag = true
+      }
+    })
+
+    if (!duplicateTag) {
+      const newTag = {
+        tag_id: tagId,
+        is_new: isNew,
+        index: '',
+        tagname: updatedText.trim()
+      }
+
+      this.setState(state =>
+        ({
+          tags: [...state.tags, newTag],
+          text: ""
+        }),
+        () => this.props.onChangeTags && this.props.onChangeTags(this.state.tags)
+      );
+    }
+    else {
+      this.setState({
+        text: ""
+      })
+      alert('You can’t add the same hashtag more than once')
+    }
   };
 
   onChangeText = text => {
     if (text.length === 0) {
+      this.props.onChangeInput && this.props.onChangeInput(text)
       this.showLastTag();
     } else if (
       text.length > 1 &&
@@ -46,8 +83,9 @@ class Tags extends React.Component {
       !text.match(new RegExp(`^[${this.props.createTagOnString.join("")}]+$`, 'g')) &&
       !(this.state.tags.indexOf(text.slice(0, -1).trim()) > -1)
     ) {
-      this.addTag(text.slice(0, -1));
+      this.addTag(text.slice(0, -1), 1);
     } else {
+      this.props.onChangeInput && this.props.onChangeInput(text)
       this.setState({ text });
     }
   };
@@ -56,7 +94,7 @@ class Tags extends React.Component {
     if (!this.props.createTagOnReturn) {
       return;
     }
-    this.addTag(this.state.text);
+    this.addTag(this.state.text, 1);
   };
 
   render() {
@@ -116,6 +154,7 @@ class Tags extends React.Component {
             value={this.state.text}
             onChangeText={this.onChangeText}
             onSubmitEditing={this.onSubmitEditing}
+            totalTags={this.state.tags.length}
             {...this.props}
           />
         }
@@ -128,8 +167,8 @@ class Tags extends React.Component {
 
 Tags.defaultProps = {
   initialTags: [],
-  initialText: " ",
-  createTagOnString: [",", " "],
+  initialText: "",
+  createTagOnString: [" "],
   createTagOnReturn: false,
   readonly: false,
   deleteTagOnPress: true,
@@ -141,13 +180,18 @@ Tags.defaultProps = {
 
 Tags.propTypes = {
   initialText: PropTypes.string,
-  initialTags: PropTypes.arrayOf(PropTypes.string),
+  addedTag: PropTypes.object,
+  placeholderText: PropTypes.string,
+  initialTags: PropTypes.arrayOf(PropTypes.object),
   createTagOnString: PropTypes.array,
   createTagOnReturn: PropTypes.bool,
   onChangeTags: PropTypes.func,
+  onChangeInput: PropTypes.func,
   readonly: PropTypes.bool,
   maxNumberOfTags: PropTypes.number,
   deleteTagOnPress: PropTypes.bool,
+  onAddTag: PropTypes.bool,
+  onAddTagSuccess: PropTypes.func,
   renderTag: PropTypes.func,
   /* style props */
   containerStyle: PropTypes.any,
