@@ -26,7 +26,7 @@ class Tags extends React.Component {
   showLastTag = () => {
     this.setState(state =>
       ({
-        tags: state.tags.slice(0, -1),
+        //tags: state.tags.slice(0, -1),
         text: state.tags.slice(-1)[0] || ""
       }),
       () =>
@@ -35,6 +35,10 @@ class Tags extends React.Component {
   };
 
   addTag = (text, isNew, tagId = '') => {
+    if(this.state.tags.length === 15){
+      alert('You can add a maximum of 15 hashtags, please try removing some')
+      return
+    }
     let updatedText = ''
     let duplicateTag = false
     if (text.charAt(0) === '#')
@@ -66,9 +70,6 @@ class Tags extends React.Component {
       );
     }
     else {
-      this.setState({
-        text: ""
-      })
       alert('You can’t add the same hashtag more than once')
     }
   };
