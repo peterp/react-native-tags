@@ -5,6 +5,8 @@ export default StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
+    borderBottomColor: "#F5F5F5",
+    borderBottomWidth: 1,
   },
 
   textInputContainer: {
@@ -12,16 +14,13 @@ export default StyleSheet.create({
     minWidth: 100,
     height: 36,
     margin: 2,
-    borderRadius: 16,
-    backgroundColor: "#F5F5F5"
+    borderRadius: 16
   },
 
   textInput: {
     width: '100%',
     paddingTop: 8,
     paddingBottom: 8,
-    borderBottomColor: '#F5F5F5',
-    borderBottomWidth: 1,
     fontSize: 16,
     fontFamily: 'GTWalsheim-Light'
   },
