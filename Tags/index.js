@@ -12,7 +12,8 @@ class Tags extends React.Component {
     super(props);
     this.state = {
       tags: props.initialTags,
-      text: props.initialText
+      text: props.initialText,
+      initialEachText: props.initialEachText,
     };
   };
 
@@ -20,7 +21,7 @@ class Tags extends React.Component {
     this.setState(state =>
       ({
         tags: state.tags.slice(0, -1),
-        text: state.tags.slice(-1)[0] || " "
+        text: state.tags.slice(-1)[0] || this.state.initialEachText
       }),
       () =>
         this.props.onChangeTags && this.props.onChangeTags(this.state.tags)
@@ -31,7 +32,7 @@ class Tags extends React.Component {
     this.setState(state =>
       ({
         tags: [...state.tags, text.trim()],
-        text: " "
+        text: this.state.initialEachText
       }),
       () => this.props.onChangeTags && this.props.onChangeTags(this.state.tags)
     );
@@ -129,6 +130,7 @@ class Tags extends React.Component {
 Tags.defaultProps = {
   initialTags: [],
   initialText: " ",
+  initialEachText: " ",
   createTagOnString: [",", " "],
   createTagOnReturn: false,
   readonly: false,
@@ -142,6 +144,7 @@ Tags.defaultProps = {
 Tags.propTypes = {
   initialText: PropTypes.string,
   initialTags: PropTypes.arrayOf(PropTypes.string),
+  initialEachText: PropTypes.string,
   createTagOnString: PropTypes.array,
   createTagOnReturn: PropTypes.bool,
   onChangeTags: PropTypes.func,
