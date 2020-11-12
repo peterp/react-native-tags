@@ -75,6 +75,10 @@ class Tags extends React.Component {
   };
 
   onChangeText = text => {
+    if(text.length > 30 && text.charAt(30) !== ' '){
+      this.props.onChangeInput && this.props.onChangeInput(text)
+      return
+    }
     if (text.length === 0) {
       this.props.onChangeInput && this.props.onChangeInput(text)
       this.showLastTag();
