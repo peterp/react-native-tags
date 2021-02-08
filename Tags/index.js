@@ -39,12 +39,14 @@ class Tags extends React.Component {
       alert('You can add a maximum of 15 hashtags, please try removing some')
       return
     }
+    if(this.state.text.trim() === '#')
+      return
     let updatedText = ''
     let duplicateTag = false
     if (text.charAt(0) === '#')
       updatedText = text
     else
-      updatedText = '#' + text
+      updatedText = '#' + text.trim()
 
     //Check for duplicate hashtags
     this.state.tags.map(item => {
@@ -96,7 +98,7 @@ class Tags extends React.Component {
   };
 
   onSubmitEditing = () => {
-    if (!this.props.createTagOnReturn) {
+    if (!this.props.createTagOnReturn || !this.state.text.trim().length > 0) {
       return;
     }
     this.addTag(this.state.text, 1);
