@@ -39,7 +39,7 @@ class Tags extends React.Component {
       alert('You can add a maximum of 15 hashtags, please try removing some')
       return
     }
-    if(this.state.text.trim() === '#')
+    if(this.state.text.trim() === '#' || this.state.text.trim() === '##' || this.state.text.trim() === '###')
       return
     let updatedText = ''
     let duplicateTag = false
