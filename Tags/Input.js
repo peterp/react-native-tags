@@ -27,6 +27,7 @@ const Input = (props) => {
         onSubmitEditing={onSubmitEditing}
         underlineColorAndroid="transparent"
         autoCapitalize="none"
+        returnKeyType="done"
       />
     </View>
   );
