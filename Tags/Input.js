@@ -28,6 +28,7 @@ const Input = (props) => {
         underlineColorAndroid="transparent"
         autoCapitalize="none"
         returnKeyType="done"
+        blurOnSubmit={false} 
       />
     </View>
   );
