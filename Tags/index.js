@@ -77,23 +77,26 @@ class Tags extends React.Component {
   };
 
   onChangeText = text => {
-    if(text.length > 30 && text.charAt(30) !== ' '){
-      this.props.onChangeInput && this.props.onChangeInput(text)
-      return
-    }
-    if (text.length === 0) {
-      this.props.onChangeInput && this.props.onChangeInput(text)
-      this.showLastTag();
-    } else if (
-      text.length > 1 &&
-      this.props.createTagOnString.includes(text.slice(-1)) &&
-      !text.match(new RegExp(`^[${this.props.createTagOnString.join("")}]+$`, 'g')) &&
-      !(this.state.tags.indexOf(text.slice(0, -1).trim()) > -1)
-    ) {
-      this.addTag(text.slice(0, -1), 1);
-    } else {
-      this.props.onChangeInput && this.props.onChangeInput(text)
-      this.setState({ text });
+    // For restricting input of special characters
+    if(/^[a-zA-Z0-9_#-]+$/.test(text) || text === '') {
+      if(text.length > 30 && text.charAt(30) !== ' '){
+        this.props.onChangeInput && this.props.onChangeInput(text)
+        return
+      }
+      if (text.length === 0) {
+        this.props.onChangeInput && this.props.onChangeInput(text)
+        this.showLastTag();
+      } else if (
+        text.length > 1 &&
+        this.props.createTagOnString.includes(text.slice(-1)) &&
+        !text.match(new RegExp(`^[${this.props.createTagOnString.join("")}]+$`, 'g')) &&
+        !(this.state.tags.indexOf(text.slice(0, -1).trim()) > -1)
+      ) {
+        this.addTag(text.slice(0, -1), 1);
+      } else {
+        this.props.onChangeInput && this.props.onChangeInput(text)
+        this.setState({ text });
+      }
     }
   };
 
