@@ -78,7 +78,7 @@ class Tags extends React.Component {
 
   onChangeText = text => {
     // For restricting input of special characters
-    if(/^[a-zA-Z0-9_#-]+$/.test(text) || text === '') {
+    if(/^[a-zA-Z0-9_#\s-]+$/.test(text) || text === '') {
       if(text.length > 30 && text.charAt(30) !== ' '){
         this.props.onChangeInput && this.props.onChangeInput(text)
         return
