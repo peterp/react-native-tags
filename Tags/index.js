@@ -83,7 +83,7 @@ class Tags extends React.Component {
             index,
             deleteTagOnPress,
             onPress: event => {
-              event.persist();
+              event?.persist();
               if (deleteTagOnPress && !readonly) {
                 this.setState(state =>
                   ({
